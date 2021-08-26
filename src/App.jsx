@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import { BrowserRouter, Route } from "react-router-dom";
 
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
 import "./App.css";
+import Header from "./components/Header";
+import TaskDetails from "./components/TaskDetails";
 
 const App = () => {
   const [tasks, setTasks] = useState([
     {
       id: "1",
-      title: "Estudar Programação",
+      title: "Tarefa 1",
       completed: false,
     },
     {
       id: "2",
-      title: "Ler Livros",
-      completed: true,
+      title: "Tarefa 2",
+      completed: false,
     },
   ]);
 
@@ -43,13 +46,30 @@ const App = () => {
 
   };
 
+  const handleTaskDeletion = (taskId) => {
+    const newTasks = tasks.filter(task => task.id !== taskId);
+    setTasks(newTasks);
+  };
+
+  const handleDetailsTask = (taskId) => {
+    
+  }
+
   return (
-    <>
+    <BrowserRouter>
       <div className="container">
-        <AddTask handleTaskAddition={handleTaskAddition} />
-        <Tasks tasks={tasks} handleTaskClick={handleTaskClick} />
+        <Header />
+        <Route path="/" exact render={() => (
+          <>
+            <AddTask handleTaskAddition={handleTaskAddition} />
+            <Tasks tasks={tasks} handleTaskClick={handleTaskClick}
+              handleTaskDeletion={handleTaskDeletion} />
+          </>
+        )}
+        />
+        <Route path="/:taskTitle" exact component={TaskDetails} />
       </div>
-    </>
+    </BrowserRouter>
   );
 };
 
