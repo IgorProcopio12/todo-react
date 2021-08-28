@@ -19,4 +19,25 @@
 
 }
 
+.back-button {
+  background-color: chocolate;  
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 100px;
+  width: 10%;
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  margin-right: 5px ;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-button:hover {
+  background-color: #444;
+  color: rgb(150, 121, 101);
+}
+
 

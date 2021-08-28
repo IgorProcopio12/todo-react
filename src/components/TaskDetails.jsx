@@ -16,9 +16,9 @@ const TaskDetails = () => {
     return (
         <>
             <div className="back-button-container"></div>
-                <Button onClick={handleBackButtonClick}>
+                <button className="back-button" onClick={handleBackButtonClick}>
                     <CgChevronLeft />
-                </Button>
+                </button>
             
             <div className="task-details-container">
                 <h2>{params.taskTitle}</h2>
