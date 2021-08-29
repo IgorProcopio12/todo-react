@@ -14,10 +14,6 @@
 
 }
 
-.back-button-container {
-    background-color: #444;
-    border: none;
-    font-size: 24px;
-    color: chartreuse;
-    cursor: pointer;
+.form.container {
+    text-align: center;
 }
